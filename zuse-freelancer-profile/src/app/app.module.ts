@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ProfileComponent } from './components/profile/profile.component'; // Adjust the path if necessary
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   declarations: [

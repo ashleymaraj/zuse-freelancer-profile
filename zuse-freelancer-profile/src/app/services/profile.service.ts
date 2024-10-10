@@ -8,7 +8,7 @@ export interface Profile {
   bio: string;
   skills: string[];
   portfolio: string[];
-  socialMedia: { [key: string]: string };
+  socialMedia: Record<string, string>;
   contact: { email: string; phone: string };
 }
 
