@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/zuse-freelancer-profile/.vs/zuse-freelancer-profile
+/zuse-freelancer-profile/.vscode
