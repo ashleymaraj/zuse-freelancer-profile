@@ -26,24 +26,47 @@
         </div>
     </div>
 
-    <!--<div class="row mt-4">
-        <div class="col-md-12">
-            <h3>Portfolio</h3>
-            <div class="row">
-                <div class="col-6" *ngFor="let item of profile.portfolio">
-                    <img [src]="item"
-                         class="img-fluid mb-2"
-                         alt="Portfolio item showcasing {{ profile.name }}'s work">
-                </div>
-            </div>
-        </div>
-    </div> -->
-
     <div class="row mt-4">
         <div class="col-md-12">
-            <h3><u>Contact Information</u></h3>
-            <p><strong><u>Email:</u></strong> {{ profile.contact.email }}</p>
-            <p><strong><u>Phone:</u></strong> {{ profile.contact.phone }}</p>
+            <h3>Portfolio</h3>
+            <p> {{ profile.portfolioBio }}</p>
+            <div class="row">
+                <div class="column">
+                    <a href="https://mtn.co.za" target="_blank">
+                        <img [src]="profile.portfolio[0]"
+                             alt="Portfolio item showcasing {{ profile.name }}'s work"
+                             style="width:40%">
+                    </a>
+                </div>
+                <div class="column">
+                    <a href="https://vodacom.co.za" target="_blank">
+                        <img [src]="profile.portfolio[1]"
+                             alt="Portfolio item showcasing {{ profile.name }}'s work"
+                             style="width:40%">
+                    </a>
+                </div>
+                <div class="column">
+                    <a href="https://standardbank.co.za" target="_blank">
+                        <img [src]="profile.portfolio[2]"
+                             alt="Portfolio item showcasing {{ profile.name }}'s work"
+                             style="width:40%">
+                    </a>
+                </div>
+                <div class="column">
+                    <a href="https://fnb.co.za" target="_blank">
+                        <img [src]="profile.portfolio[3]"
+                             alt="Portfolio item showcasing {{ profile.name }}'s work"
+                             style="width:40%">
+                    </a>
+                </div>
+                <div class="column">
+                    <a href="https://absa.co.za" target="_blank">
+                        <img [src]="profile.portfolio[4]"
+                             alt="Portfolio item showcasing {{ profile.name }}'s work"
+                             style="width:40%">
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -55,6 +78,14 @@
                     <a [href]="key.value" target="_blank" rel="noopener noreferrer">{{ key.key }}</a>
                 </li>
             </ul>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h3><u>Contact Information</u></h3>
+            <p><strong><u>Email:</u></strong> {{ profile.contact.email }}</p>
+            <p><strong><u>Phone:</u></strong> {{ profile.contact.phone }}</p>
         </div>
     </div>
 </main>

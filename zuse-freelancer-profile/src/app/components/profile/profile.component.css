@@ -23,3 +23,14 @@
     font-size: 1.25rem; 
   }
 }
+.column {
+  float: left;
+  width: 20%;;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
