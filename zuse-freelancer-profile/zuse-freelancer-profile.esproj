@@ -8,7 +8,6 @@
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\zuse-freelancer-profile\browser\</BuildOutputFolder>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="src\app\components\profile\portfolio\" />
     <Folder Include="src\assets\images\" />
   </ItemGroup>
 </Project>
