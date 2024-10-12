@@ -31,35 +31,35 @@
             <h3>Portfolio</h3>
             <p> {{ profile.portfolioBio }}</p>
             <div class="row">
-                <div class="column">
+                <div class="col-md-2">
                     <a href="https://mtn.co.za" target="_blank">
                         <img [src]="profile.portfolio[0]"
                              alt="Portfolio item showcasing {{ profile.name }}'s work"
                              style="width:40%">
                     </a>
                 </div>
-                <div class="column">
+                <div class="col-md-2">
                     <a href="https://vodacom.co.za" target="_blank">
                         <img [src]="profile.portfolio[1]"
                              alt="Portfolio item showcasing {{ profile.name }}'s work"
                              style="width:40%">
                     </a>
                 </div>
-                <div class="column">
+                <div class="col-md-2">
                     <a href="https://standardbank.co.za" target="_blank">
                         <img [src]="profile.portfolio[2]"
                              alt="Portfolio item showcasing {{ profile.name }}'s work"
                              style="width:40%">
                     </a>
                 </div>
-                <div class="column">
+                <div class="col-md-2">
                     <a href="https://fnb.co.za" target="_blank">
                         <img [src]="profile.portfolio[3]"
                              alt="Portfolio item showcasing {{ profile.name }}'s work"
                              style="width:40%">
                     </a>
                 </div>
-                <div class="column">
+                <div class="col-md-2">
                     <a href="https://absa.co.za" target="_blank">
                         <img [src]="profile.portfolio[4]"
                              alt="Portfolio item showcasing {{ profile.name }}'s work"
@@ -71,14 +71,32 @@
     </div>
 
     <div class="row mt-4">
-        <div class="col-md-12">
+        <div class="col-md-14">
             <h3><u>Social Media</u></h3>
-            <ul class="list-unstyled">
-                <li *ngFor="let key of profile.socialMedia | keyvalue">
-                    <a [href]="key.value" target="_blank" rel="noopener noreferrer">{{ key.key }}</a>
-                </li>
-            </ul>
-        </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="https://instagram.com" target="_blank">
+                        <img [src]="profile.socialMedia[0]"
+                             alt="Media item showcasing {{ profile.name }}'s work"
+                             style="width:15%">
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="https://linkedin.com" target="_blank">
+                        <img [src]="profile.socialMedia[1]"
+                             alt="Media item showcasing {{ profile.name }}'s work"
+                             style="width:15%">
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="https://x.com" target="_blank">
+                        <img [src]="profile.socialMedia[2]"
+                             alt="Media item showcasing {{ profile.name }}'s work"
+                             style="width:15%">
+                    </a>
+                </div>
+            </div>
+       </div>
     </div>
 
     <div class="row mt-4">
