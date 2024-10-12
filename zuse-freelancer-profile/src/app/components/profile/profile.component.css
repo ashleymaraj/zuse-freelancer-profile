@@ -3,29 +3,9 @@
   height: auto;
 }
 
-@media (max-width: 576px) {
-  .card {
-    margin-bottom: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .text-center {
-    text-align: center;
-  }
-}
-
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.5rem; 
-  }
-  h5 {
-    font-size: 1.25rem; 
-  }
-}
 .column {
   float: left;
-  width: 20%;;
+  width: 20%;
 }
 
 /* Clear floats after image containers */

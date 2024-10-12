@@ -10,7 +10,7 @@ export interface Profile {
   skills: string[];
   portfolio: string[];
   portfolioBio: string;
-  socialMedia: Record<string, string>;
+  socialMedia: string[];
   contact: { email: string; phone: string };
 }
 
@@ -28,11 +28,7 @@ export class ProfileService {
       skills: ['Angular', 'JavaScript', 'CSS', 'HTML'],
       portfolio: ['assets/images/mtn.png', 'assets/images/vodacom.png', 'assets/images/stdbank.jpg', 'assets/images/fnb.png', 'assets/images/absa.png'],
       portfolioBio: 'The below links will take you the work I have done for these companies',
-      socialMedia: {
-        LinkedIn: 'https://linkedin.com/in/walterwhite',
-        X: 'https://x.com/walterwhite',
-        Instagram : 'https://instagram.com/walterwhite'
-      },
+      socialMedia: ['assets/images/instagram.jpg','assets/images/linkedin.png','assets/images/x.jpg'],
       contact: { email: 'walterwhite@breakingbad.com', phone: '+2708882200' }
     };
     return of(mockProfile);
