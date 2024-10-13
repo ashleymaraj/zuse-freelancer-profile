@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 export interface Profile {
   profilepic: string[];
@@ -18,7 +19,7 @@ export interface Profile {
   providedIn: 'root'
 })
 export class ProfileService {
-  getProfile(): Observable<Profile> {
+  /*getProfile(): Observable<Profile> {
     const mockProfile: Profile = {
       profilepic: ['assets/images/walterwhite.jpg'],
       name: 'Walter White',
@@ -32,5 +33,12 @@ export class ProfileService {
       contact: { email: 'walterwhite@breakingbad.com', phone: '+2708882200' }
     };
     return of(mockProfile);
+  }*/
+  private apiUrl = 'http://localhost:3000/api/profile';
+
+  constructor(private http: HttpClient) { }
+
+  getProfile(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
   }
 }
