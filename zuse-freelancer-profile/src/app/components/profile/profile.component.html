@@ -3,7 +3,13 @@
 </header>
 
 <main class="container my-4">
-    <div class="row">
+    <div *ngIf="loading" class="text-center">
+        <p>Loading profile...</p>
+    </div>
+    <div *ngIf="error" class="text-danger text-center">
+        <p>{{error}}</p>
+    </div>
+    <div *ngIf="!loading && !error" class="row">
         <div class="col-md-2 text-center">
             <img [src]="profile?.profilePicture"
                  class="img-fluid"
