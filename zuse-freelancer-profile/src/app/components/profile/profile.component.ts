@@ -11,6 +11,8 @@ export class ProfileComponent implements OnInit {
   profile: any;
   loading = true;
   error: string | null = null;
+  isEditing = false;
+  editingPortfolioItem: any;
 
   constructor(private profileService: ProfileService) { }
 
@@ -25,5 +27,25 @@ export class ProfileComponent implements OnInit {
         this.loading = false;
       }
     );
+  }
+  save() {
+    this.isEditing = false; 
+  }
+
+  editPortfolio(item: any) {
+    this.editingPortfolioItem = { ...item }; // Create a copy of the item to edit
+  }
+
+  savePortfolio() {
+    // Update the original portfolio item with the edited values
+    const index = this.profile.profile.portfolio_items.findIndex((i: any) => i.id === this.editingPortfolioItem.id);
+    if (index !== -1) {
+      this.profile.profile.portfolio_items[index] = this.editingPortfolioItem;
+    }
+    this.editingPortfolioItem = null; // Clear the editing state
+  }
+
+  cancelEdit() {
+    this.editingPortfolioItem = null; // Clear the editing state
   }
 }

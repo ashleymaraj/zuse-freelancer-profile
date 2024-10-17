@@ -8,7 +8,6 @@ app.use(cors());
 
 
 const profileData = {
-    "profilePicture": '/images/walterwhite.jpg',
     "id": 1,
     "first_name": "Jane",
     "last_name": "Doe",
@@ -36,8 +35,20 @@ const profileData = {
         "education": [ /*...*/],
         "certifications": [ /*...*/],
         "portfolio_items": [
-            { "id": 1, "title": "E-commerce Platform", "description": "Developed a fully functional e-commerce platform using React and Django", "url": "https://github.com/janedoe/ecommerce-platform" },
-            { "id": 2, "title": "Another One", "description": "Developed a  functional e-commerce  using   Django", "url": "https://linkedin.com/janedoe/ecommerce-platform" }
+            {
+                "id": 1,
+                "title": "E-commerce Platform",
+                "description": "Developed a fully functional e-commerce platform using React and Django",
+                "url": "https://github.com/janedoe/ecommerce-platform",
+                "image": "http://localhost:3000/images/stdbank.jpg"
+            },
+            {
+                "id": 2,
+                "title": "Another One",
+                "description": "Developed a  functional e-commerce  using   Django",
+                "url": "https://linkedin.com/janedoe/ecommerce-platform",
+                "image": "http://localhost:3000/images/x.jpg"
+            }
         ],
         "reviews": [ /*...*/],
         "social_links": [
