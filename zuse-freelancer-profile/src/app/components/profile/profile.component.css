@@ -1,16 +1,94 @@
-.img-fluid {
-  width: 100%;
-  height: auto;
+.skills-list {
+  list-style-type: none;
+  padding-left: 0; 
+  display: flex;
+  flex-wrap: wrap; 
 }
 
-.column {
-  float: left;
-  width: 20%;
+.skill-item {
+  position: relative; 
+  margin: 5px; 
 }
 
-/* Clear floats after image containers */
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
+.skill-badge {
+  background-color: #800080;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
+
+  .skill-badge:hover {
+    background-color: #5a36a1; 
+  }
+
+.star-rating {
+  display: none; 
+  position: absolute; 
+  left: 0; 
+  top: 30px; 
+  font-size: 1.0em; 
+  color: gold; 
+}
+
+.skill-item:hover .star-rating {
+  display: block; 
+}
+
+.social-media-icons {
+  display: flex;
+  justify-content: center; 
+  gap: 10px; 
+  margin-top: 10px; 
+  margin-bottom: 20px;
+}
+
+.social-icon {
+  text-decoration: none; 
+  font-size: 16px; 
+  color: #333; 
+  transition: color 0.3s; 
+  border: 1px solid #6f42c1; 
+  border-radius: 5px; 
+  padding: 5px; 
+  background-color: white; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+  .social-icon:hover {
+    color: white; 
+    background-color: #6f42c1; 
+  }
+
+.portfolio-list {
+  list-style-type: none; 
+  padding: 0; 
+}
+
+.portfolio-list li {
+  margin-bottom: 10px; 
+}
+
+.portfolio-list a {
+color: #6f42c1; 
+text-decoration: none; 
+transition: color 0.3s; 
+}
+
+.portfolio-list a:hover {
+  text-decoration: underline; 
+}
+
+.carousel-item {
+  text-align: center; 
+}
+
+  .carousel-item h5 {
+    margin-bottom: 5px; 
+  }
+
+  .carousel-item p {
+    font-size: 14px; 
+  }
+

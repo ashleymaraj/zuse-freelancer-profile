@@ -1,115 +1,108 @@
-<header class="bg-light p-3">
-    <h1 class="text-center">Freelancer Profile</h1>
-</header>
-
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
 <main class="container my-4">
-    <div *ngIf="loading" class="text-center">
-        <p>Loading profile...</p>
-    </div>
-    <div *ngIf="error" class="text-danger text-center">
-        <p>{{error}}</p>
-    </div>
-    <div *ngIf="!loading && !error" class="row">
-        <div class="col-md-2 text-center">
-            <img [src]="profile?.profilePicture"
-                 class="img-fluid"
-                 alt="{{ profile?.name }}'s Profile Picture">
-        </div> -
+  <div class="container">
+    <div class="main-body">
+      <div class="row gutters-sm">
+        <div class="col-md-3 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-column align-items-center text-center">
+                <img src="http://localhost:3000/images/walterwhite.jpg" alt="Profile Picture" class="rounded-circle" width="120">
+                <div class="mt-3">
+                  <h5>{{ profile.first_name }} {{ profile.last_name }}</h5>
+                  <p class="text-muted font-size-sm" style="font-size:95%;">
+                    <i class="fa fa-location-dot"></i> {{ profile.profile.city }},{{ profile.profile.state }}
+                  </p>
+                  <p style="font-size:95%;">Hourly Rate R{{ profile.profile.hourly_rate }}/hour</p>
+                  <div class="social-media-icons">
+                    <div *ngFor="let link of profile.profile.social_links">
+                      <a [href]="link.url" target="_blank" class="social-icon">
+                        <i class="fab" [ngClass]="{
+              'fa-linkedin': link.platform === 'LinkedIn',
+              'fa-github': link.platform === 'GitHub'
+            }"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <button class="btn btn-success btn-block" style="background-color:purple;width:275px">
+                    <i class="fa fa-envelope-square"></i> Contact Me </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="col-md-8">
-            <h2><u>{{ profile?.name }}</u></h2>
-            <p><strong><u>Location:</u></strong> {{ profile?.location }}</p>
-            <p><strong><u>Hourly Rate:</u></strong> R{{ profile?.hourlyRate }}</p>
-            <p><strong><u>Bio:</u></strong> {{ profile?.bio }}</p>
-        </div>
-    </div>
-
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <h3><u>Skills</u></h3>
-            <ul class="list-unstyled">
-                <li *ngFor="let skill of profile.skills" class="badge bg-primary me-1">{{ skill }}</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <h3>Portfolio</h3>
-            <p> {{ profile?.portfolioBio }}</p>
-            <div class="row">
-                <div class="col-md-2">
-                    <a href="https://mtn.co.za" target="_blank">
-                        <img [src]="profile?.portfolio[0]"
-                             alt="Portfolio item showcasing {{ profile.name }}'s work"
-                             style="width:40%">
-                    </a>
-                </div>
-                <div class="col-md-2">
-                    <a href="https://vodacom.co.za" target="_blank">
-                        <img [src]="profile?.portfolio[1]"
-                             alt="Portfolio item showcasing {{ profile.name }}'s work"
-                             style="width:40%">
-                    </a>
-                </div>
-                <div class="col-md-2">
-                    <a href="https://standardbank.co.za" target="_blank">
-                        <img [src]="profile?.portfolio[2]"
-                             alt="Portfolio item showcasing {{ profile.name }}'s work"
-                             style="width:40%">
-                    </a>
-                </div>
-                <div class="col-md-2">
-                    <a href="https://fnb.co.za" target="_blank">
-                        <img [src]="profile?.portfolio[3]"
-                             alt="Portfolio item showcasing {{ profile.name }}'s work"
-                             style="width:40%">
-                    </a>
-                </div>
-                <div class="col-md-2">
-                    <a href="https://absa.co.za" target="_blank">
-                        <img [src]="profile?.portfolio[4]"
-                             alt="Portfolio item showcasing {{ profile.name }}'s work"
-                             style="width:40%">
-                    </a>
-                </div>
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="mt-3">
+                <h5>About Me</h5>
+                <p style="font-size:95%;">{{ profile.profile.bio }} </p>
+              </div>
             </div>
-        </div>
-    </div>
-
-    <div class="row mt-4">
-        <div class="col-md-14">
-            <h3><u>Social Media</u></h3>
-            <div class="row">
-                <div class="col-md-2">
-                    <a href="https://instagram.com" target="_blank">
-                        <img [src]="profile?.socialMedia[0]"
-                             alt="Media item showcasing {{ profile.name }}'s work"
-                             style="width:15%">
-                    </a>
+          </div>
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="row mt-4">
+                <div class="col-md-12">
+                  <h5>Skills</h5>
+                  <ul class="skills-list">
+                    <li *ngFor="let skill of profile.profile.skills" class="skill-item">
+                      <span class="badge skill-badge">{{ skill.name }}</span>
+                      <div class="star-rating">
+                        <span *ngIf="skill.level === 'Expert'">★★★★★</span>
+                        <span *ngIf="skill.level === 'Intermediate'">★★★☆☆</span>
+                        <span *ngIf="skill.level === 'Beginner'">★☆☆☆☆</span>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
-                <div class="col-md-2">
-                    <a href="https://linkedin.com" target="_blank">
-                        <img [src]="profile?.socialMedia[1]"
-                             alt="Media item showcasing {{ profile.name }}'s work"
-                             style="width:15%">
-                    </a>
-                </div>
-                <div class="col-md-2">
-                    <a href="https://x.com" target="_blank">
-                        <img [src]="profile?.socialMedia[2]"
-                             alt="Media item showcasing {{ profile.name }}'s work"
-                             style="width:15%">
-                    </a>
-                </div>
+              </div>
             </div>
+          </div>
+                    <div class="card mb-3">
+            <div class="card-body">
+              <div class="mt-3">
+      <h5>Portfolio:</h5>
+      <div id="portfolioCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let item of profile.profile.portfolio_items; let i = index" [ngClass]="{'active': i === 0}">
+            <div class="d-flex justify-content-center">
+              <a [href]="item.url" target="_blank">
+                <h5>{{ item.title }}</h5>
+                <p>{{ item.description }}</p>
+              </a>
+            </div>
+          </div>
         </div>
-    </div>
-
-    <div class="row mt-4">
-        <div class="col-md-12">
-            <h3><u>Contact Information</u></h3>
-            <p><strong><u>Email:</u></strong> {{ profile?.contact.email }}</p>
-            <p><strong><u>Phone:</u></strong> {{ profile?.contact.phone }}</p>
+        <a class="carousel-control-prev" href="#portfolioCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#portfolioCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+              </div>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="mt-3">
+                <h5>Contact Information</h5>
+                <p style="font-size:95%;">
+                  <i class="fa fa-envelope-square"></i> {{ profile.email }}
+                </p>
+                <p style="font-size:95%;">
+                  <i class="fa fa-location-dot"></i> {{ profile.profile.city }},{{ profile.profile.country }}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </main>
